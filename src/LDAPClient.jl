@@ -5,6 +5,9 @@ using OpenLDAPClient_jll
 include("enums.jl")
 include("types.jl")
 include("libldap.jl")
+include("liblber.jl")
+include("messages.jl")
+include("attributes.jl")
 
 function is_ldap_url(url::AbstractString) :: Bool
     ldap_is_ldap_url(url) != 0
