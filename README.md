@@ -1,5 +1,5 @@
 
-# LDAP.jl
+# LDAPClient.jl
 
 [![License][license-img]](LICENSE)
 [![travis][travis-img]][travis-url]
