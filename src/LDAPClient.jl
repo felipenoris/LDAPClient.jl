@@ -54,22 +54,16 @@ end
         return result
     end
 
-    cstring_vector = unsafe_wrap(Array, ptr, (10,))
-
     local i = 1
     while true
-        p = cstring_vector[i]
-        if p == C_NULL
+        cstr_ptr = unsafe_load(ptr, i)
+        if cstr_ptr == C_NULL
             break
         else
-            push!(result, unsafe_string(p))
+            push!(result, unsafe_string(cstr_ptr))
         end
 
         i += 1
-
-        if i > length(cstring_vector)
-            cstring_vector = unsafe_wrap(Vector{Cstring}, ptr, (length(cstring_vector) * 2,))
-        end
     end
 
     return result
