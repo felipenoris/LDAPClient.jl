@@ -20,7 +20,7 @@ A Julia client for LDAP (Lightweight Directory Access Protocol) based on [OpenLD
 
 ### Authentication
 
-This implements the simple use-case of checking if a username and password are valid or not.
+This implements the use-case of checking if a username and password are valid or not.
 `r` will be either an `AuthOk` for successful authentication, or `AuthErr` when the
 password is wrong or any other error happened.
 
@@ -51,7 +51,7 @@ search(ldap::LDAPConnection, base::AbstractString, scope::LDAPScope;
         size_limit::Integer=-1) :: MessageChain
 ```
 
-Here `scope` can be one of these values: `LDAP_SCOPE_BASE`, `LDAP_SCOPE_ONELEVEL`, `LDAP_SCOPE_SUBTREE`, `LDAP_SCOPE_CHILDREN`.
+`scope` can be one of these values: `LDAP_SCOPE_BASE`, `LDAP_SCOPE_ONELEVEL`, `LDAP_SCOPE_SUBTREE`, `LDAP_SCOPE_CHILDREN`.
 
 The following example queries for users, filtering only results that match users named `USER1` or `USER2`.
 
@@ -68,7 +68,7 @@ We can count how many messages of each kind we have with `count_messages(chain)`
 
 We can iterate messages of each kind with `each_message(chain)`, `each_entry(chain)`, `each_reference(chain)`.
 
-For `Entry` messages, we can inspects its attributes. The following shows a complete example.
+For `Entry` messages, we can inspect its attributes. The following shows a complete example.
 
 ```julia
 conn = LDAPClient.LDAPConnection("ldap://ldap.server.net")
