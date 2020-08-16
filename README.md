@@ -16,6 +16,12 @@
 
 A Julia client for LDAP (Lightweight Directory Access Protocol) based on [OpenLDAP](https://www.openldap.org/) library.
 
+## Installation
+
+```julia
+pkg> add LDAPClient
+```
+
 ## Tutorial
 
 ### Authentication
