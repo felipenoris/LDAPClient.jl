@@ -103,7 +103,11 @@ function URL(url::AbstractString)
     return result
 end
 
-function simple_bind(ldap::LDAPConnection, who::AbstractString, password::AbstractString)
+function simple_bind(
+    ldap::LDAPConnection,
+    who::Union{AbstractString,Nothing}=nothing,
+    password::Union{AbstractString,Nothing}=nothing,
+)
     err = ldap_simple_bind_s(ldap.handle, who, password)
     error_check(err)
     nothing
