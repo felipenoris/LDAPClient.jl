@@ -38,8 +38,11 @@ function ldap_set_option(ldp_handle::Ptr{Cvoid}, option::LDAPOption, in_value::T
 end
 
 # int ldap_simple_bind_s(LDAP *ld, const char *who, const char *passwd);
-function ldap_simple_bind_s(ldp_handle::Ptr{Cvoid}, who::AbstractString, password::AbstractString)
-    ccall((:ldap_simple_bind_s, libldap), Cint, (Ptr{Cvoid}, Cstring, Cstring), ldp_handle, who, password)
+function ldap_simple_bind_s(ldp_handle::Ptr{Cvoid}, who::Union{AbstractString,Nothing}, password::Union{AbstractString,Nothing})
+    ccall((:ldap_simple_bind_s, libldap), Cint, (Ptr{Cvoid}, Cstring, Cstring),
+        ldp_handle,
+        isnothing(who) ? C_NULL : who,
+        isnothing(password) ? C_NULL : password)
 end
 
 # int ldap_unbind_s(LDAP *ld);

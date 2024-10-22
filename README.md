@@ -46,6 +46,20 @@ LDAPClient.simple_bind(conn, "my-username", "my-password") # here we actually ge
 LDAPClient.unbind(conn)
 ```
 
+### Anonymous and unauthenticated modes
+
+To bind in unauthenticated mode, leave out the password from the `simple_bind` call:
+
+```julia
+LDAPClient.simple_bind(conn, "my-username")
+```
+
+To bind in anonymous mode, leave out both username and password:
+
+```julia
+LDAPClient.simple_bind(conn)
+```
+
 ### Running queries
 
 Use `LDAPClient.search` to perform queries on your LDAP server.
