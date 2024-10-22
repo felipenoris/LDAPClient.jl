@@ -3,7 +3,7 @@ uuid = "a3dbcd64-d9cb-45e9-b48d-422bbbdd8627"
 license = "MIT"
 authors = ["Felipe Noronha <felipenoris@gmail.com>"]
 repo = "https://github.com/felipenoris/LDAP.jl.git"
-version = "0.1.1-dev"
+version = "0.1.1"
 
 [deps]
 OpenLDAPClient_jll = "234f2d50-f964-585e-b1c8-17cd4567e563"
